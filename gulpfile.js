@@ -1,4 +1,4 @@
-/*
+﻿/*
 
     Gulpfile de exemplo para algumas ações clássicas de otimização.
     
@@ -11,7 +11,6 @@
 
 var gulp = require('gulp');
 var $ = require('gulp-load-plugins')({rename: {'gulp-rev-delete-original':'revdel', 'gulp-if': 'if'}});
-
 
 
 /* Tasks base */
@@ -86,7 +85,7 @@ gulp.task('rev', function(){
     .pipe(gulp.dest('dist/'))
 })
 
-gulp.task('revreplace', ['rev'], function(){
+gulp.task('revreplace', 'rev', function(){
   return gulp.src(['dist/index.html', 'dist/app.yaml', 'dist/**/*.css'])
     .pipe($.revReplace({
         manifest: gulp.src('dist/rev-manifest.json'),
