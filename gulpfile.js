@@ -98,7 +98,7 @@ gulp.task('revreplace', function(){
 
 /* Alias */
 gulp.task('minify', gulp.parallel('minify-js', 'minify-css', 'minify-html'));
-gulp.task('build', $.sequence(['minify-js', 'minify-css', 'imagemin']), gulp.parallel('useref', 'revreplace'));
+gulp.task('build', $.sequence(['minify-js', 'minify-css', 'imagemin'], 'useref', 'revreplace'));
 gulp.task('default', $.sequence('clean', 'copy', 'build'));
 
 
