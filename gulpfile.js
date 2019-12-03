@@ -85,7 +85,7 @@ gulp.task('rev', function(){
     .pipe(gulp.dest('dist/'))
 })
 
-gulp.task('revreplace', 'rev', function(){
+gulp.task('revreplace', ['rev'], function(){
   return gulp.src(['dist/index.html', 'dist/app.yaml', 'dist/**/*.css'])
     .pipe($.revReplace({
         manifest: gulp.src('dist/rev-manifest.json'),
