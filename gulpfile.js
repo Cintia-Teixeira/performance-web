@@ -86,9 +86,11 @@ gulp.task('rev', function(){
 })
 
 gulp.task('revreplace', function(){
-  return gulp.src(['dist/index.html', 'dist/app.yaml', 'dist/**/*.css'])
+  return gulp.src(['dist/index.html', 'dist/app.yaml', 'dist/**/*.{css,js,jpg,jpeg,png,svg}'])  //antes estava só com .css
     .pipe($.revReplace({
-        manifest: gulp.src('dist/rev-manifest.json'),
+        manifest: gulp.src('dist/rev-manifest.json', {
+            allowEmpty : true
+        }),
         replaceInExtensions: ['.html', '.yaml', '.js', '.css']
     }))
     .pipe(gulp.dest('dist/'));
